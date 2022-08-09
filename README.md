@@ -9,7 +9,7 @@ Total Spended Hours: 15~
 # WARNING!!
 Cerberos C2 is not created for illegal purpose. The creator is not responsible for any damage. 
 
-# requirements
+# Requirements
 1. Windows 10 for setup
 2. Python 3.10.6
 3. Discord Application
