@@ -33,9 +33,9 @@ change {ID} to the client ID wich you want to control.
 
 # System
 !cmd {ID} {INPUT}		       >> Executes a system command on client. Change {INPUT} To command.
-!destruct {ID} 			       >> Delets all trace's of Cerberos C2.
+!destruct {ID} 			       >> Deletes all trace's of Cerberos C2.
 !reboot {ID}                           >> Reboots Client's system.
-!shutdown {ID}                         >> Shutsdowb Client's system.
+!shutdown {ID}                         >> Shutsdown Client's system.
 !usbcheck {ID} 			       >> Checks all pluged in device's.
 !vm {ID}			       >> Checks if client is vm.
 !wcd {ID}			       >> Get Current working dir.
@@ -76,14 +76,14 @@ change {ID} to the client ID wich you want to control.
 !camcount {ID} 			       >> Counts all systemcams.
 
 # IP
-!ipinfo {ID}			       >> Displays IP info of client. Country, Region etc.
-!ipmap {ID} 			       >> Converts IP Lat, Long of client to a map.
+!ipinfo {ID}			       >> Display's IP info of client. Country, Region etc.
+!ipmap {ID} 			       >> Convert's IP Lat, Long of client to a map.
 
 # admin rights
 !block {ID} 			       >> Blocks input, keyboard, mouse.
 !unblock {ID} 			       >> Unblocks input. 
 !displayoff {ID} 		       >> Blocks client input and set a black screen.
-!displayon {ID} 		       >> Unblock client input and removes blackscreen. 
+!displayon {ID} 		       >> Unblocks client input and removes blackscreen. 
 
 #persist
 !persist {ID}			       >> Creates persistance on client. Exe: Edge.exe Regname: Edge.
