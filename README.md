@@ -1,8 +1,3 @@
-!termcmd {ID}		>> start to delete all cmd windows
-!terchrome {ID} 	>> start to delete all chrome windows
-!syslan {ID} 		>> get system language
-!delclipboard {ID}	>> delete active clipboard
-!setclipboard {ID} {T} 	>> replace t with your text. set current clipboard
 # Cerberos-C2
 Cerberos C2 has over 50+ Functions, Cerberos Uses Discord as the C2. Cerberos CAN ONLY BE USED TO CONTROL WINDOWS. \
 Cerberos v1.0.0 is created on 09-8-2022 by Vczz0.\
