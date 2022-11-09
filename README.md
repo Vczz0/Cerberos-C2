@@ -69,10 +69,10 @@ change {ID} to the client ID wich you want to control.
 
 # Mouse / Keys    		       
 !key {ID} {KEY} 		       >> Clicks Key given on clients keyboard change {KEY} with the key.
-!morekey {ID} {KEY} 		       >> Clicks multiple Key given on clients keyboard change {KEY} with the key's.
-!mousemove {ID} {coordinates} 	           >> Move's client mouse to given coordinates.
-!mouseclick {ID} {coordinates} 	           >> Clicks on coordinates given.
-!mouysedoubleclick {ID} {coordinates}      >> Double clicks on coordinates given.
+!morekey {ID} {KEY}                    >> Clicks multiple Key given on clients keyboard change {KEY} with the key's.
+!mousemove {ID} {coordinates} 	       >> Move's client mouse to given coordinates.
+!mouseclick {ID} {coordinates} 	       >> Clicks on coordinates given.
+!mouysedoubleclick {ID} {coordinates}  >> Double clicks on coordinates given.
 
 
 # Cam
